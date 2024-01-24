@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 from capstone_api.quickstart.serializers import GroupSerializer, UserSerializer
 
@@ -23,3 +25,6 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 # Create your views here.
+@api_view(['GET'])
+def hello_world(request):
+    return Response({'message': 'Hello, world!'})

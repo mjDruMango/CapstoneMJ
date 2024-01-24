@@ -1,6 +1,11 @@
+'use client'
+import HelloWorld from "./HelloWorld";
+
 function Home(){
   return(
-    <p>Homepage Testing</p>
+    <>
+      <HelloWorld></HelloWorld>
+    </>
   );
 }
 export default Home;
