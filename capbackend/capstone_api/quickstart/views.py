@@ -4,7 +4,7 @@ from rest_framework import permissions, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from capstone_api.quickstart.serializers import GroupSerializer, UserSerializer
+from capstone_api.quickstart.serializers import GroupSerializer, UserSerializer, TextSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -28,3 +28,11 @@ class GroupViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def hello_world(request):
     return Response({'message': 'Hello, world!'})
+
+@api_view(['POST'])
+def encrypt_test(request):
+    serializer = TextSerializer(data=request.data)
+    if serializer.is_valid():
+        text_data = serializer.validated_data['text_data']
+        manipulated_data = text_data + ' is manipulated'
+    return Response({'message': manipulated_data})
