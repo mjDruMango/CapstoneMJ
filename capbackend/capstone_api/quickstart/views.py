@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group, User
-from rest_framework import permissions, viewsets
+from rest_framework import permissions, viewsets, generics
+from .models import ImageModel
+from .serializers import ImageSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -36,3 +38,7 @@ def encrypt_test(request):
         text_data = serializer.validated_data['text_data']
         manipulated_data = text_data + ' is manipulated'
     return Response({'message': manipulated_data})
+
+class ImageView(generics.CreateAPIView):
+    queryset = ImageModel.objects.all()
+    serializer_class = ImageSerializer

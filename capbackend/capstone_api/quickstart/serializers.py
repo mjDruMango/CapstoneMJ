@@ -1,5 +1,6 @@
 from django.contrib.auth.models import Group, User
 from rest_framework import serializers
+from .models import ImageModel
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -15,3 +16,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         
 class TextSerializer(serializers.Serializer):
     text_data = serializers.CharField()
+    
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageModel
+        fields = ('image',)
