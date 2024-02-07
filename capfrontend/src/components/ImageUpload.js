@@ -27,7 +27,6 @@ const ImageUpload = () => {
             await axios.post('http://localhost:8000/api/test-upload/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
-                console.log(response);
                 setEncryptImage(response.data.image_data);
             })
         } catch (error) {

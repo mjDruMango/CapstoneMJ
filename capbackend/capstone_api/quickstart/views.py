@@ -55,22 +55,8 @@ def ImageView(request):
     image_data = base64.b64encode(encryptedImage).decode('utf-8')
     
     # Return image
-    return Response({'image_data': image_data})
-    print(request.data)
-    serializer = ImageSerializer(data=request.data)
+    return Response({'image_data': image_data })
 
-    if serializer.is_valid():
-            # Save the object to the database
-        image_instance = serializer.save()
-
-            # Read the image file data
-        with open(image_instance.image.path, 'rb') as image_file:
-            image_data = base64.b64encode(image_file.read()).decode('utf-8')
-
-            # Return the image data in the response
-        return Response({'image_data': image_data}, status=status.HTTP_201_CREATED)
-    else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['POST'])
 def web_encryption(request):
