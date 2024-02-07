@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HelloWorld from "./pages/HelloWorld";
 import EncryptTest from "./pages/EncryptTest";
 import ImageUpload from "./components/ImageUpload";
+import "./App.css"
 
 function Home(){
   return(

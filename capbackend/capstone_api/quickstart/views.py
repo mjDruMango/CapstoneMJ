@@ -1,4 +1,5 @@
 import base64
+from .utils import *
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets, generics, status
@@ -6,6 +7,7 @@ from .models import ImageModel
 from .serializers import ImageSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+
 
 from capstone_api.quickstart.serializers import GroupSerializer, UserSerializer, TextSerializer
 
@@ -41,6 +43,19 @@ def encrypt_test(request):
 
 @api_view(['POST'])
 def ImageView(request):
+    
+    # Take in image
+    inputImage = request.data['image']
+    
+    # Take in text
+    inputText = request.data['inputText']
+    
+    # Encrypt text into image
+    encryptedImage = TextEncryption(inputImage, inputText)
+    image_data = base64.b64encode(encryptedImage).decode('utf-8')
+    
+    # Return image
+    return Response({'image_data': image_data})
     print(request.data)
     serializer = ImageSerializer(data=request.data)
 

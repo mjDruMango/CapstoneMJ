@@ -6,6 +6,8 @@ const ImageUpload = () => {
     const [image, setImage] = useState(null);
     const [text, setText] = useState(null);
 
+    const [encryptImage, setEncryptImage] = useState(null);
+
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     };
@@ -26,6 +28,7 @@ const ImageUpload = () => {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
                 console.log(response);
+                setEncryptImage(response.data.image_data);
             })
         } catch (error) {
             console.error('Error uploading image:', error);
@@ -33,7 +36,7 @@ const ImageUpload = () => {
     };
 
     return (
-        <div>
+        <div className="dark-background">
             <form onSubmit={handleUpload}>
                 <input
                         type="file" 
@@ -53,12 +56,12 @@ const ImageUpload = () => {
             </form>
 
 
-            {/* {imageData && (
+            {encryptImage && (
                 <div>
                     <h2>Uploaded Image</h2>
-                    <img src={`data:image/jpeg;base64,${imageData}`} alt="Uploaded" />
+                    <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
                 </div>
-            )} */}
+            )}
         </div>
     );
 };

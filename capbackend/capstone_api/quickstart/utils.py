@@ -1,4 +1,5 @@
 from PIL import Image
+from io import BytesIO
 
 def ConvertToBinary(text_data):
     return ''.join(format(ord(char), '08b') for char in text_data)
@@ -21,9 +22,14 @@ def TextEncryption(image_path, text_data):
                 text_index += 1
         image_data[i] = tuple(pixel)
 
+    bytesIO = BytesIO()
+    
     stego_image = Image.new(image.mode, image.size)
     stego_image.putdata(image_data)
-    stego_image.save('stego_image.png')
+    stego_image.save(bytesIO, format='PNG')
+    imageData = bytesIO.getvalue()
+    return imageData
+    #stego_image.save('stego_image.png')
 
 def TextDecryption(image_path):
     return()
