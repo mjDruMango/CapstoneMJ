@@ -58,6 +58,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'capstone_api.urls'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
