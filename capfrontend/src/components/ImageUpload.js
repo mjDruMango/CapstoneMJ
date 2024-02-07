@@ -4,23 +4,28 @@ import axios from 'axios';
 
 const ImageUpload = () => {
     const [image, setImage] = useState(null);
-    const [imageData, setImageData] = useState(null);
+    const [text, setText] = useState(null);
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     };
 
-    const handleUpload = async () => {
-        try {
-            const formData = new FormData();
-            formData.append('image', image);
+    const handleTextChange = (e) => {
+        setText(e.target.value);
+    };
 
-            await axios.post('http://localhost:8000/api/test-upload/', formData, {
+    const handleUpload = async (e) => {
+        e.preventDefault();
+        try {
+            const newFormData = new FormData();
+
+            newFormData.append('image', image);
+            newFormData.append('inputText', text);
+            
+            await axios.post('http://localhost:8000/api/test-upload/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
                 console.log(response);
-
-                setImageData(response.data.image_data);
             })
         } catch (error) {
             console.error('Error uploading image:', error);
@@ -29,15 +34,31 @@ const ImageUpload = () => {
 
     return (
         <div>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-            <button onClick={handleUpload}>Upload Image</button>
+            <form onSubmit={handleUpload}>
+                <input
+                        type="file" 
+                        name="encryptImage"
+                        accept="image/*" 
+                        onChange={handleImageChange} 
+                    />
 
-            {imageData && (
+                <input 
+                    type="text"
+                    name="encryptText"
+                    placeholder="Type Message Here"
+                    onChange={handleTextChange}
+                />
+
+                <button type="submit" onClick={handleUpload}>Submit</button>
+            </form>
+
+
+            {/* {imageData && (
                 <div>
                     <h2>Uploaded Image</h2>
                     <img src={`data:image/jpeg;base64,${imageData}`} alt="Uploaded" />
                 </div>
-            )}
+            )} */}
         </div>
     );
 };
