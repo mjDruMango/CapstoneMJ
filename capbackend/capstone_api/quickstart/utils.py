@@ -1,14 +1,21 @@
 from PIL import Image
 from io import BytesIO
+import random
 
+#Converts text from user input into 8-bit binary format
 def ConvertToBinary(text_data):
     return ''.join(format(ord(char), '08b') for char in text_data)
-    
-#^^^ converts text from user input into 8-bit binary format
 
-def TextEncryption(image_path, text_data):
+#LSB encryption
+def TextEncryption(image_path, text_data, start_x=None, start_y=None):
     image = Image.open(image_path)
     text_binary = ConvertToBinary(text_data)
+    
+#Randomize the starting pixel for the message
+    if start_x is None:
+        start_x = random.randint(0, image.width - 1)
+    if start_y is None:
+        start_y = random.randint(0, image.height - 1)
     
     text_index = 0
     image_data = list(image.getdata())
