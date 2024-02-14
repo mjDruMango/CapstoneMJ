@@ -38,5 +38,24 @@ def TextEncryption(image_path, text_data, start_x=None, start_y=None):
     return imageData
     #stego_image.save('stego_image.png')
 
-def TextDecryption(image_path):
-    return()
+def TextDecryption(image_data):
+    
+    #image_data = list(image.getdata())???
+    
+    encrypted_image = Image.open(BytesIO(image_data))
+    
+    width, height = encrypted_image.size
+    
+    binary = ""
+    for y in range(height):
+        for x in range(width):
+            pixel = encrypted_image.getpixel((x, y))
+            for color in pixel[:3]:
+                binary += str(color & 1)
+    
+    message = ""
+    for i in range(0, len(binary), 8):
+        byte = binary[i:i+8]
+        message += chr(int(byte, 2))
+    
+    return message

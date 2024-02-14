@@ -34,6 +34,17 @@ const ImageUpload = () => {
         }
     };
 
+    const handleDownload = () => {
+        // const blob = new Blob(encryptImage, {type: "image/png"});
+        // const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        
+        link.href = `data:image/png;base64,${encryptImage}`;
+
+        link.download = "encryptedImage.png";
+        link.click();
+    }
+
     return (
         <div className="dark-background">
             <form onSubmit={handleUpload}>
@@ -59,6 +70,8 @@ const ImageUpload = () => {
                 <div>
                     <h2>Uploaded Image</h2>
                     <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
+
+                    <button onClick={handleDownload}>Download Image</button>
                 </div>
             )}
         </div>
