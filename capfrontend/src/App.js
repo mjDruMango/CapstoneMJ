@@ -3,6 +3,7 @@ import HelloWorld from "./pages/HelloWorld";
 import EncryptTest from "./pages/EncryptTest";
 import ImageUpload from "./components/ImageUpload";
 import "./App.css"
+import LSBDecrypt from "./pages/LSB/Decrypt";
 
 function Home(){
   return(
@@ -12,6 +13,7 @@ function Home(){
         <Route path="/HelloWorld" element={<HelloWorld />} />
         <Route path="/EncryptTest" element={<EncryptTest />} />
         <Route path="/ImageUpload" element={<ImageUpload />} />
+        <Route path="/LSBDecrypt" element={<LSBDecrypt />} />
       </Routes>
     </BrowserRouter>
   );

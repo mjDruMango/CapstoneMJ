@@ -49,7 +49,7 @@ def ImageView(request):
     
     # Take in text
     inputText = request.data['inputText']
-    
+    print(inputText)
     # Encrypt text into image
     encryptedImage = TextEncryption(inputImage, inputText)
     image_data = base64.b64encode(encryptedImage).decode('utf-8')
@@ -59,5 +59,14 @@ def ImageView(request):
 
     
 @api_view(['POST'])
-def web_encryption(request):
-    return()
+def lsb_decryption(request):
+    print("DATA:", request.data)
+    #Take in image
+    inputImage = request.data['image']
+    print("IMAGE:",  inputImage)
+    
+    #Grab message from image
+    message = TextDecryption(inputImage)
+    
+    #Return message
+    return Response({'message': message})

@@ -8,6 +8,8 @@ def ConvertToBinary(text_data):
 
 #LSB encryption
 def TextEncryption(image_path, text_data, start_x=None, start_y=None):
+    text_data = text_data + "*&^%"
+    print(text_data)
     image = Image.open(image_path)
     text_binary = ConvertToBinary(text_data)
     
@@ -38,24 +40,27 @@ def TextEncryption(image_path, text_data, start_x=None, start_y=None):
     return imageData
     #stego_image.save('stego_image.png')
 
-def TextDecryption(image_data):
+def TextDecryption(image_path):
     
-    #image_data = list(image.getdata())???
+    ##image_data = Image.open(image_path).getdata()
     
-    encrypted_image = Image.open(BytesIO(image_data))
-    
+    encrypted_image = Image.open(BytesIO(image_path.read()))
     width, height = encrypted_image.size
     
     binary = ""
+    message = ""
+    end_marker = "*&^%"
+    
     for y in range(height):
         for x in range(width):
             pixel = encrypted_image.getpixel((x, y))
             for color in pixel[:3]:
                 binary += str(color & 1)
-    
-    message = ""
+
     for i in range(0, len(binary), 8):
         byte = binary[i:i+8]
         message += chr(int(byte, 2))
+        
+    message = message.split(end_marker)[0];
     
     return message
