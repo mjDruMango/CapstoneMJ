@@ -38,11 +38,9 @@ def TextEncryption(image_path, text_data, start_x=None, start_y=None):
     stego_image.save(bytesIO, format='PNG')
     imageData = bytesIO.getvalue()
     return imageData
-    #stego_image.save('stego_image.png')
 
+#LSB Decryption
 def TextDecryption(image_path):
-    
-    ##image_data = Image.open(image_path).getdata()
     
     encrypted_image = Image.open(BytesIO(image_path.read()))
     width, height = encrypted_image.size
@@ -64,3 +62,73 @@ def TextDecryption(image_path):
     message = message.split(end_marker)[0];
     
     return message
+
+def VigenereEncrypt(text_data, key):
+    #store text and set key index
+    encrypted_text = ""
+    index = 0
+    
+    #loop through and check text
+    for char in text_data:
+        if char.isalpha():
+            shift = ord(key[index % len(key)].upper()) - ord('A')
+            
+            if char.isupper():
+                encrypted_text += chr((ord(char) + shift - ord('A')) % 26 + ord('A'))
+            
+            elif char.islower():
+                encrypted_text += chr((ord(char) + shift - ord('a')) % 26 + ord('a'))
+            index += 1
+        else:
+            encrypted_text += char
+    return encrypted_text
+
+def VigenereDecrypt(text_data, key):
+    #store text and set key index
+    decrypted_text = ""
+    index = 0
+    
+    for char in text_data:
+        if char.isalpha():
+            shift = ord(key[index % len(key)].upper()) - ord('A')
+            
+            if char.isupper():
+                decrypted_text += chr((ord(char) - shift - ord('A')) % 26 + ord('A'))
+            
+            elif char.islower():
+                decrypted_text += chr((ord(char) - shift - ord('a')) % 26 + ord('a'))
+            index += 1
+        else:
+            decrypted_text += char
+    
+    return decrypted_text
+
+#bacon was here
+
+def CaesarEncrypt(text_data, shift):
+    #store text
+    encrypted_text = 0
+    
+    for char in text_data:
+        if char.isalpha():
+            encrypted_text += chr((ord(char) - 65 + shift) % 26 + 65)
+        else:
+            encrypted_text += chr((ord(char) - 97 + shift) % 26 + 97)
+    
+    else:
+        encrypted_text += char
+    return encrypted_text
+
+def CaesarDecrypt(text_data, shift):
+    #store text
+    decrypted_text = 0
+    
+    for char in text_data:
+        if char.isalpha():
+            encrypted_text += chr((ord(char) - 65 - shift) % 26 + 65)
+        else:
+            encrypted_text += chr((ord(char) - 97 - shift) % 26 + 97)
+    
+    else:
+        encrypted_text += char
+    return decrypted_text

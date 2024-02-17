@@ -7,7 +7,6 @@ const LSBDecrypt = () => {
     
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
-        //console.log(image);
     }
 
     const grabAPI = async (e) => {
