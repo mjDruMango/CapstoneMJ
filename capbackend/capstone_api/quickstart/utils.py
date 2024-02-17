@@ -107,13 +107,13 @@ def VigenereDecrypt(text_data, key):
 
 def CaesarEncrypt(text_data, shift):
     #store text
-    encrypted_text = 0
+    encrypted_text = ""
     
     for char in text_data:
         if char.isalpha():
-            encrypted_text += chr((ord(char) - 65 + shift) % 26 + 65)
+            encrypted_text += chr(((ord(char) - 65 + shift) % 26) + 65)
         else:
-            encrypted_text += chr((ord(char) - 97 + shift) % 26 + 97)
+            encrypted_text += chr(((ord(char) - 97 + shift) % 26) + 97)
     
     else:
         encrypted_text += char
@@ -121,14 +121,14 @@ def CaesarEncrypt(text_data, shift):
 
 def CaesarDecrypt(text_data, shift):
     #store text
-    decrypted_text = 0
+    decrypted_text = ""
     
     for char in text_data:
         if char.isalpha():
-            encrypted_text += chr((ord(char) - 65 - shift) % 26 + 65)
+            decrypted_text += chr(((ord(char) - 65 - shift) % 26) + 65)
         else:
-            encrypted_text += chr((ord(char) - 97 - shift) % 26 + 97)
+            decrypted_text += chr(((ord(char) - 97 - shift) % 26) + 97)
     
     else:
-        encrypted_text += char
+        decrypted_text += char
     return decrypted_text

@@ -17,10 +17,6 @@ const VigEncrypt = () => {
         setTextData(e.target.value);
     };
 
-    const handleEncryptedText = (e) => {
-        setEncryptedText(e.target.value);
-    };
-
     const grabAPI = async () => {
         const data = {
             'message': textData,

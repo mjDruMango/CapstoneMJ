@@ -99,7 +99,7 @@ def vig_decryption(request):
 def caesar_encryption(request):
     #Take in message and shift
     message = request.data['message']
-    shift = request.data['shift']
+    shift = int(request.data['shift'])
     
     #Run message and shift through function
     encryptedText = CaesarEncrypt(message, shift)
