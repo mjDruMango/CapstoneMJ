@@ -1,4 +1,3 @@
-// src/components/ImageUpload.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -35,8 +34,6 @@ const ImageUpload = () => {
     };
 
     const handleDownload = () => {
-        // const blob = new Blob(encryptImage, {type: "image/png"});
-        // const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         
         link.href = `data:image/png;base64,${encryptImage}`;

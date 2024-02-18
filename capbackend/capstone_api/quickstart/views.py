@@ -70,3 +70,51 @@ def lsb_decryption(request):
     
     #Return message
     return Response({'message': message})
+
+@api_view(['POST'])
+def vig_encryption(request):
+    #Take in message and key
+    message = request.data['message']
+    key = request.data['key']
+    
+    #Run message and key through function
+    encryptedText = VigenereEncrypt(message, key)
+    
+    #Return message
+    return Response({'message': encryptedText})
+
+@api_view(['POST'])
+def vig_decryption(request):
+    #Take in message and key
+    message = request.data['message']
+    key = request.data['key']
+    
+    #Run message and key through function
+    decryptedText = VigenereDecrypt(message, key)
+    
+    #Return message
+    return Response({'message': decryptedText})
+
+@api_view(['POST'])
+def caesar_encryption(request):
+    #Take in message and shift
+    message = request.data['message']
+    shift = int(request.data['shift'])
+    
+    #Run message and shift through function
+    encryptedText = CaesarEncrypt(message, shift)
+    
+    #Return message
+    return Response({'message': encryptedText})
+
+@api_view(['POST'])
+def caesar_decryption(request):
+    #Take in message and shift
+    message = request.data['message']
+    shift = int(request.data['shift'])
+    
+    #Run message and shift through function
+    decryptedText = CaesarDecrypt(message, shift)
+    
+    #Return message
+    return Response({'message': decryptedText})
