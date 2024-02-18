@@ -111,12 +111,13 @@ def CaesarEncrypt(text_data, shift):
     
     for char in text_data:
         if char.isalpha():
-            encrypted_text += chr(((ord(char) - 65 + shift) % 26) + 65)
-        else:
-            encrypted_text += chr(((ord(char) - 97 + shift) % 26) + 97)
+            if char.isupper():
+                encrypted_text += chr(((ord(char) - 65 + shift) % 26) + 65)
+            else:
+                encrypted_text += chr(((ord(char) - 97 + shift) % 26) + 97)
     
-    else:
-        encrypted_text += char
+        else:
+            encrypted_text += char
     return encrypted_text
 
 def CaesarDecrypt(text_data, shift):
@@ -125,10 +126,11 @@ def CaesarDecrypt(text_data, shift):
     
     for char in text_data:
         if char.isalpha():
-            decrypted_text += chr(((ord(char) - 65 - shift) % 26) + 65)
-        else:
-            decrypted_text += chr(((ord(char) - 97 - shift) % 26) + 97)
+            if char.isupper():
+                decrypted_text += chr(((ord(char) - 65 - shift) % 26) + 65)
+            else:
+                decrypted_text += chr(((ord(char) - 97 - shift) % 26) + 97)
     
-    else:
-        decrypted_text += char
+        else:
+            decrypted_text += char
     return decrypted_text

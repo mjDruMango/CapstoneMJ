@@ -111,7 +111,7 @@ def caesar_encryption(request):
 def caesar_decryption(request):
     #Take in message and shift
     message = request.data['message']
-    shift = request.data['shift']
+    shift = int(request.data['shift'])
     
     #Run message and shift through function
     decryptedText = CaesarDecrypt(message, shift)
