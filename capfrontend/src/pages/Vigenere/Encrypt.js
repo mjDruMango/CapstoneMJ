@@ -27,7 +27,7 @@ const VigEncrypt = () => {
         }
 
         //Send POST request to API, get back encrypted text
-        await axios.post('http://localhost:8000/api/vig-encrypt/', data, {
+        await axios.post('http://localhost:8000/vig/encrypt/', data, {
                 headers: { 'Content-Type': 'application/json' },
             }).then(response => {
                 console.log(response);

@@ -28,7 +28,7 @@ const ImageUpload = () => {
             newFormData.append('inputText', text);
             
             //Send POST request to API, updates encryptImage with encrypted image data
-            await axios.post('http://localhost:8000/api/test-upload/', newFormData, {
+            await axios.post('http://localhost:8000/lsb/encrypt/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
                 setEncryptImage(response.data.image_data);
@@ -75,7 +75,6 @@ const ImageUpload = () => {
                 <div>
                     <h2>Uploaded Image</h2>
                     <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
-
                     <button onClick={handleDownload}>Download Image</button>
                 </div>
             )}

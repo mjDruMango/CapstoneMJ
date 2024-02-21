@@ -22,7 +22,7 @@ const CaesarDecrypt = () => {
             'message': textData,
             'shift': shift
         }
-        await axios.post('http://localhost:8000/api/caesar-decrypt/', data, {
+        await axios.post('http://localhost:8000/caesar/decrypt/', data, {
                 headers: { 'Content-Type': 'application/json' },
             }).then(response => {
                 console.log(response);

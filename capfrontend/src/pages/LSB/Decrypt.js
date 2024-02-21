@@ -21,7 +21,7 @@ const LSBDecrypt = () => {
         newFormData.append('image', image);
             
             //Send POST request to API, returns extracted message
-            await axios.post('http://localhost:8000/api/lsb-decrypt/', newFormData, {
+            await axios.post('http://localhost:8000/lsb/decrypt/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
                 setMessage(response.data.message);
