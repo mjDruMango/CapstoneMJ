@@ -1,14 +1,14 @@
 import React from 'react';
-import Navbar from '../components/Navbar.js';
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js';
+import TabsDefaultwithIcons from '../components/TabsWithIcons.js';
 
 const Page = (props) => {
     const { headerTitle, children } = props;
 
     return (
         <>
-            <Navbar/>
+            <TabsDefaultwithIcons/>
             <div>
                 <Header text={ headerTitle } />
                 {children}

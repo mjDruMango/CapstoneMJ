@@ -8,7 +8,7 @@ function Navbar() {
             <ul>
                 <div>
                     <li>
-                        <Link to="/EncryptTest">Home</Link>
+                        <Link to="/ImageUpload">LSB Encryption</Link>
                     </li>
                 </div>
                 <div>

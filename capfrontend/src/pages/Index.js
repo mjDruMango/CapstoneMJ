@@ -1,9 +1,10 @@
+import PageHeadersSimplewithCover from '../components/PageHeading.js';
 import Page from '../pages/Page.js'
 
 function Index() {
     return (
         <Page>
-            <p> i did it :D </p>
+            <PageHeadersSimplewithCover />
         </Page>
     );
 }

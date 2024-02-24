@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import EncryptTest from "./pages/EncryptTest";
 import ImageUpload from "./components/ImageUpload";
 import LSBDecrypt from "./pages/LSB/Decrypt";
 import VigEncrypt from "./pages/Vigenere/Encrypt";
@@ -15,7 +14,6 @@ function Home(){
       <Routes>
         <Route index element={<Index />} />
         <Route path="/Home" element={<Index />} />
-        <Route path="/EncryptTest" element={<EncryptTest />} />
         <Route path="/ImageUpload" element={<ImageUpload />} />
         <Route path="/LSBDecrypt" element={<LSBDecrypt />} />
         <Route path="/VigEncrypt" element={<VigEncrypt />} />

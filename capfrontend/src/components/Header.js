@@ -8,7 +8,7 @@ const Header = (props) => {
     }
 
     return (
-        <h1 style={headerStyle}>
+        <h1 className="text-3xl font-bold underline">
             {text}
         </h1>
     );
