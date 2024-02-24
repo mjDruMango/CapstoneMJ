@@ -17,18 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-
-from capstone_api.quickstart import views
+from . import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('api/', include('capstone_api.quickstart.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('lsb/encrypt/', views.ImageView, name='test-upload'),
+    path('lsb/decrypt/', views.lsb_decryption, name='lsb-decrypt'),
+    path('vig/encrypt/', views.vig_encryption, name='vig-encrypt'),
+    path('vig/decrypt/', views.vig_decryption, name='vig-decrypt'),
+    path('caesar/encrypt/', views.caesar_encryption, name='caesar-encrypt'),
+    path('caesar/decrypt/', views.caesar_decryption, name='caesar-decrypt'),
 ]
 
 urlpatterns += router.urls

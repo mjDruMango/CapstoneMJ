@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import PageWithSideContent from '../PageWithSideContent';
 
 const VigEncrypt = () => {
+
+    //State variables
     const [textData, setTextData] = useState(null);
     const [key, setKey] = useState(null);
 
     const [encryptedText, setEncryptedText] = useState(null);
 
+    //#region Event Handlers
     const handleKeyChange = (e) => {
         var keyInput = e.target.value;
         keyInput = keyInput.replace(/[^A-Za-z]/ig, "");
@@ -22,21 +26,26 @@ const VigEncrypt = () => {
             'message': textData,
             'key': key
         }
-        await axios.post('http://localhost:8000/api/vig-encrypt/', data, {
+
+        //Send POST request to API, get back encrypted text
+        await axios.post('http://localhost:8000/vig/encrypt/', data, {
                 headers: { 'Content-Type': 'application/json' },
             }).then(response => {
                 console.log(response);
                 setEncryptedText(response.data.message);
             })
     };
+    //#endregion
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault();//Prevent page from reloading
 
         await grabAPI();
     };
+    //Creating message box, encryption key box, submit button
     return(
         <div>
+            <PageWithSideContent />
             <form onSubmit={handleSubmit}>
                 <input type='text' placeholder='insert message' onChange={handleTextChange}/>
                 <input type='text' placeholder='insert key' onChange={handleKeyChange}/>
