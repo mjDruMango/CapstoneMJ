@@ -22,7 +22,7 @@ const VigDecrypt = () => {
             'message': textData,
             'key': key
         }
-        await axios.post('http://localhost:8000/api/vig-decrypt/', data, {
+        await axios.post('http://localhost:8000/vig/decrypt/', data, {
                 headers: { 'Content-Type': 'application/json' },
             }).then(response => {
                 console.log(response);
