@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import PageWithSideContent from '../PageWithSideContent';
 
 const CaesarDecrypt = () => {
     const [textData, setTextData] = useState(null);
@@ -37,6 +38,7 @@ const CaesarDecrypt = () => {
     };
     return(
         <div>
+            < PageWithSideContent />
             <form onSubmit={handleSubmit}>
                 <input type='text' placeholder='insert message' onChange={handleTextChange}/>
                 <input type='number' placeholder='insert shift number' onChange={handleShiftChange}/>

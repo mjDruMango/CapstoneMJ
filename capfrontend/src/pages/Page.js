@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js';
 import TabsDefaultwithIcons from '../components/TabsWithIcons.js';
+import MatrixRain from '../components/MatrixRain.js';
 
 const Page = (props) => {
     const { headerTitle, children } = props;
