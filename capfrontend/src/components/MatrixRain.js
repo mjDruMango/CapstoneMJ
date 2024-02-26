@@ -24,7 +24,7 @@ const MatrixRain = () => {
         const draw = () => {
             context.fillStyle = 'rgba(0, 0, 0, 0.05)';
             context.fillRect(0, 0, canvas.width, canvas.height);
-            context.fillStyle = '#630163';
+            context.fillStyle = '#4f014f';
             context.font = fontSize + 'px arial';
 
             for (let i = 0; i < rainDrops.length; i++) {

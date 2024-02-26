@@ -1,15 +1,14 @@
 import React from 'react';
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js';
-import TabsDefaultwithIcons from '../components/TabsWithIcons.js';
-import MatrixRain from '../components/MatrixRain.js';
+import BackgroundMatrixRain from '../components/BackgroundMatrixRain.js';
 
 const Page = (props) => {
     const { headerTitle, children } = props;
 
     return (
         <>
-            <TabsDefaultwithIcons/>
+            <BackgroundMatrixRain />
             <div>
                 <Header text={ headerTitle } />
                 {children}
