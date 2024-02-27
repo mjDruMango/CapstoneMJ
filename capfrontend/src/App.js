@@ -8,8 +8,8 @@ import CaesarEncrypt from "./pages/Caesar/Encrypt";
 import CaesarDecrypt from "./pages/Caesar/Decrypt";
 import "./App.css"
 
-function Home(){
-  return(
+function Home() {
+  return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Index />} />
@@ -20,6 +20,7 @@ function Home(){
         <Route path="/VigDecrypt" element={<VigDecrypt />} />
         <Route path="/CaesarEncrypt" element={<CaesarEncrypt />} />
         <Route path="/CaesarDecrypt" element={<CaesarDecrypt />} />
+        <Route path="*" element={<Index />} />
       </Routes>
     </BrowserRouter>
   );

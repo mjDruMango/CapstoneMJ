@@ -3,19 +3,17 @@ import Header from '../components/Header.js'
 import Footer from '../components/Footer.js';
 import BackgroundMatrixRain from '../components/BackgroundMatrixRain.js';
 
-const Page = (props) => {
-    const { headerTitle, children } = props;
+export default function Page(props) {
+
 
     return (
         <>
             <BackgroundMatrixRain />
             <div>
-                <Header text={ headerTitle } />
-                {children}
+                <Header text={props.headerTitle} />
+                {props.children}
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
-
-export default Page;

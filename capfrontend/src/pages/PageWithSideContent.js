@@ -14,7 +14,7 @@ export default function PageWithSideContent() {
       {/* Page Container */}
       <div
         id="page-container"
-        className={`mx-auto flex min-h-dvh w-full min-w-[320px] flex-col bg-gray-100 dark:bg-gray-900 dark:text-gray-100 ${
+        className={`mx-auto flex min-h-dvh w-full min-w-[320px] flex-col bg-transparent dark:text-gray-100 ${
           desktopSidebarOpen ? "lg:pl-64" : ""
         }`}
       >
@@ -456,7 +456,7 @@ export default function PageWithSideContent() {
           className="flex max-w-full flex-auto flex-col pt-16 lg:flex-row-reverse"
         >
           {/* Toggle Side Content */}
-          <div className="w-full bg-gray-50 p-4 dark:bg-gray-800 dark:bg-opacity-25 lg:hidden lg:p-8">
+          <div className="w-full bg-gray-50 p-4 dark:bg-gray-800 dark:bg-opacity-25 lg:hidden lg:p-8 z-100">
             <button
               onClick={() => setMobileSideContentOpen(!mobileSideContentOpen)}
               type="button"
@@ -469,7 +469,7 @@ export default function PageWithSideContent() {
 
           {/* Side Content */}
           <div
-            className={`w-full flex-none flex-col bg-gray-50 p-4 dark:bg-gray-800 dark:bg-opacity-25 lg:flex lg:w-80 lg:p-8 xl:w-96 ${
+            className={`w-full flex-none flex-col bg-transparent p-4 dark:bg-gray-800 dark:bg-opacity-25 lg:flex lg:w-80 lg:p-8 xl:w-96 ${
               mobileSideContentOpen ? "" : "hidden"
             }`}
           >
