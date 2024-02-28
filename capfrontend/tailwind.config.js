@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         "main-purple": "#360136",
-        "custom-purple-1": "#4a014a"
+        "custom-purple-1": "#4a014a",
       },
       zIndex: {
         '1': 1,

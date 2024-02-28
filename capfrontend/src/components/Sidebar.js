@@ -12,7 +12,7 @@ export default function Sidebar() {
       <nav
         id="page-sidebar"
         aria-label="Main Sidebar Navigation"
-        className={`fixed bottom-0 left-0 top-0 z-50 flex h-full w-full flex-col bg-main-purple transition-transform duration-500 ease-out dark:border-gray-800 dark:bg-gray-800 dark:text-gray-200 lg:w-64 ${desktopSidebarOpen ? "lg:translate-x-0" : "lg:-translate-x-full"
+        className={`fixed bottom-0 left-0 top-0 z-50 flex h-full w-full flex-col bg-main-purple transition-transform duration-500 ease-out lg:w-64 ${desktopSidebarOpen ? "lg:translate-x-0" : "lg:-translate-x-full"
           } ${mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Sidebar Header */}
@@ -24,7 +24,7 @@ export default function Sidebar() {
             className="group inline-flex items-center space-x-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600"
           >
             <svg
-              className="hi-mini hi-cube-transparent inline-block size-5 text-purple-600 transition group-hover:scale-110 dark text-white"
+              className="hi-mini hi-cube-transparent inline-block size-5 text-white transition group-hover:scale-110 text-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
@@ -101,7 +101,7 @@ export default function Sidebar() {
       {/* Page Header */}
       <header
         id="page-header"
-        className={`flex flex-none items-center h-16 bg-main-purple shadow-sm fixed top-0 right-0 left-0 z-30 lg:pl-64 dark:bg-gray-800 ${desktopSidebarOpen ? "lg:pl-64" : ""
+        className={`flex flex-none items-center h-16 bg-main-purple shadow-sm fixed top-0 right-0 left-0 z-30 lg:pl-64 ${desktopSidebarOpen ? "lg:pl-64" : ""
           }`}
       >
         <div className="flex justify-between max-w-10xl mx-auto px-4 lg:px-8 w-full">

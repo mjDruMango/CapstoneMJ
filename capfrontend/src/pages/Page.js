@@ -15,7 +15,7 @@ export default function Page(props) {
             >
                 <BackgroundMatrixRain />
                 <div>
-                    <Header text={props.headerTitle} />
+                    {/* <Header text={props.headerTitle} /> */}
                     {props.children}
                 </div>
                 <Footer />

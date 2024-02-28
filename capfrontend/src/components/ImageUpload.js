@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ImageUpload = () => {
+export default function ImageUpload() {
     //State variables
     const [image, setImage] = useState(null);
     const [text, setText] = useState(null);
@@ -22,11 +22,11 @@ const ImageUpload = () => {
 
         //Construct FormData object
         try {
-            const newFormData = new FormData(); 
+            const newFormData = new FormData();
 
             newFormData.append('image', image);
             newFormData.append('inputText', text);
-            
+
             //Send POST request to API, updates encryptImage with encrypted image data
             await axios.post('http://localhost:8000/lsb/encrypt/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
@@ -42,7 +42,7 @@ const ImageUpload = () => {
 
         //Creates temporary link
         const link = document.createElement("a");
-        
+
         link.href = `data:image/png;base64,${encryptImage}`;
 
         link.download = "encryptedImage.png";
@@ -51,35 +51,36 @@ const ImageUpload = () => {
 
     //Creating text box, image upload button, submit button, and download button
     return (
-        <div className="dark-background">
-            <form onSubmit={handleUpload}>
-                <input
-                        type="file" 
+        <>
+            <span className="bg-pink">Hi</span>
+            <div className="bg-white z-100">
+                <form onSubmit={handleUpload}>
+                    <input
+                        type="file"
                         name="encryptImage"
-                        accept="image/*" 
-                        onChange={handleImageChange} 
+                        accept="image/*"
+                        onChange={handleImageChange}
                     />
 
-                <input 
-                    type="text"
-                    name="encryptText"
-                    placeholder="Type Message Here"
-                    onChange={handleTextChange}
-                />
+                    <input
+                        type="text"
+                        name="encryptText"
+                        placeholder="Type Message Here"
+                        onChange={handleTextChange}
+                    />
 
-                <button type="submit" onClick={handleUpload}>Submit</button>
-            </form>
+                    <button type="submit" onClick={handleUpload}>Submit</button>
+                </form>
 
 
-            {encryptImage && (
-                <div>
-                    <h2>Uploaded Image</h2>
-                    <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
-                    <button onClick={handleDownload}>Download Image</button>
-                </div>
-            )}
-        </div>
+                {encryptImage && (
+                    <div>
+                        <h2>Uploaded Image</h2>
+                        <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
+                        <button onClick={handleDownload}>Download Image</button>
+                    </div>
+                )}
+            </div>
+        </>
     );
 };
-
-export default ImageUpload;

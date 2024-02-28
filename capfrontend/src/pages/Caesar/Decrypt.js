@@ -38,7 +38,6 @@ const CaesarDecrypt = () => {
     };
     return(
         <div>
-            < PageWithSideContent />
             <form onSubmit={handleSubmit}>
                 <input type='text' placeholder='insert message' onChange={handleTextChange}/>
                 <input type='number' placeholder='insert shift number' onChange={handleShiftChange}/>

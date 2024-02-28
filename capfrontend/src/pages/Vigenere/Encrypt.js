@@ -45,7 +45,6 @@ const VigEncrypt = () => {
     //Creating message box, encryption key box, submit button
     return(
         <div>
-            <PageWithSideContent />
             <form onSubmit={handleSubmit}>
                 <input type='text' placeholder='insert message' onChange={handleTextChange}/>
                 <input type='text' placeholder='insert key' onChange={handleKeyChange}/>
