@@ -29,11 +29,11 @@ const VigEncrypt = () => {
 
         //Send POST request to API, get back encrypted text
         await axios.post('http://localhost:8000/vig/encrypt/', data, {
-                headers: { 'Content-Type': 'application/json' },
-            }).then(response => {
-                console.log(response);
-                setEncryptedText(response.data.message);
-            })
+            headers: { 'Content-Type': 'application/json' },
+        }).then(response => {
+            console.log(response);
+            setEncryptedText(response.data.message);
+        })
     };
     //#endregion
 
@@ -43,11 +43,11 @@ const VigEncrypt = () => {
         await grabAPI();
     };
     //Creating message box, encryption key box, submit button
-    return(
+    return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type='text' placeholder='insert message' onChange={handleTextChange}/>
-                <input type='text' placeholder='insert key' onChange={handleKeyChange}/>
+                <input type='text' placeholder='insert message' onChange={handleTextChange} />
+                <input type='text' placeholder='insert key' onChange={handleKeyChange} />
                 <button type='submit'>Submit</button>
             </form>
             {encryptedText && (

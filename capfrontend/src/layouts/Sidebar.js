@@ -140,36 +140,32 @@ export default function Sidebar({ mobileSidebarOpen, setMobileSidebarOpen, deskt
                             </a>
 
                             {navigation.map((category) => (
-                                <>
-                                    <div key={category.categoryName} className="px-3 pb-2 pt-5 text-xs font-semibold uppercase tracking-wider text-white">
+                                <React.Fragment key={category.categoryName}>
+                                    <div className="px-3 pb-2 pt-5 text-xs font-semibold uppercase tracking-wider text-white">
                                         {category.categoryName}
                                     </div>
 
-                                    {category.pages.map((pages) => (
-                                        <>
-                                            <NavLink
-                                                to={(category.prepend) + (pages.pageLink)}
-                                                className={({ isActive }) =>
-                                                    isActive ? " group flex items-center space-x-2 rounded-lg border border-transparent px-2.5 text-sm bg-secondary hover:text-white" : " focus:outline-none group flex items-center space-x-2 rounded-lg border border-transparent px-2.5 text-sm hover:bg-secondary hover:text-white"
-                                                }
-                                            >
-                                                <span className="flex flex-none items-center text-white">
-                                                    <FontAwesomeIcon icon={pages.iconName} className="h-4" />
-                                                </span>
-
-                                                <span className="grow py-2">{pages.pageName}</span>
-                                            </NavLink >
-                                        </>
+                                    {category.pages.map((page) => (
+                                        <NavLink
+                                            key={`${category.categoryName}-${page.pageLink}-${page.pageName}`} // Ensures uniqueness
+                                            to={`${category.prepend}${page.pageLink}`}
+                                            className={({ isActive }) =>
+                                                isActive ? "group flex items-center space-x-2 rounded-lg border border-transparent px-2.5 text-sm bg-secondary hover:text-white" : "focus:outline-none group flex items-center space-x-2 rounded-lg border border-transparent px-2.5 text-sm hover:bg-secondary hover:text-white"
+                                            }
+                                        >
+                                            <span className="flex flex-none items-center text-white">
+                                                <FontAwesomeIcon icon={page.iconName} className="h-4" />
+                                            </span>
+                                            <span className="grow py-2">{page.pageName}</span>
+                                        </NavLink>
                                     ))}
-
-                                </>
+                                </React.Fragment>
 
 
                             ))}
 
-
                         </nav>
-                    </div >
+                    </div>
                 </div >
                 {/* END Sidebar Navigation */}
             </nav>

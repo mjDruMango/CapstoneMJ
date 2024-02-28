@@ -14,8 +14,8 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+          <Route element={<Layout />}>
+            <Route path="/" index element={<Home />} />
             <Route path="/image-steganography">
               <Route path="encrypt" element={<ImageSteganographyEncrypt />} />
               <Route path="decrypt" element={<ImageSteganographyDecrypt />} />
