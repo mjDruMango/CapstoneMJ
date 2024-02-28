@@ -9,7 +9,7 @@ function Footer() {
 
     return(
         <>
-            <p style={style}>©2023 - 2024 MJ Drumheller</p>
+            <p style={style}></p>
         </>
     );
 }
