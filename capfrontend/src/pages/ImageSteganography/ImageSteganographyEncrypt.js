@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import Input from '../../components/forms/Input';
+import Card from '../../components/card/Card';
+import Button from '../../components/button/Button';
+
 export default function ImageSteganographyEncrypt() {
     //State variables
     const [image, setImage] = useState(null);
@@ -52,34 +56,56 @@ export default function ImageSteganographyEncrypt() {
     //Creating text box, image upload button, submit button, and download button
     return (
         <>
-            <span className="bg-pink">Hi</span>
-            <div className="bg-white z-100">
-                <form onSubmit={handleUpload}>
-                    <input
-                        type="file"
-                        name="encryptImage"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                    />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className='col-span-1 lg:col-span-2'>
+                    <Card
+                        header="Image Steganography Encryption"
+                        footer={encryptImage && (
+                            <>
+                                <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
+                                <Button
+                                    onClick={handleDownload}
+                                >
+                                    Download Image
+                                </Button>
+                            </>
+                        )} >
+                        <form onSubmit={handleUpload}>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
+                                <div>
 
-                    <input
-                        type="text"
-                        name="encryptText"
-                        placeholder="Type Message Here"
-                        onChange={handleTextChange}
-                    />
+                                    <Input
+                                        label="Encryption Image"
+                                        id="imgsteg-encrypt"
+                                        type="file"
+                                        accept="image/*"
+                                        placeholder="Message to Encrypt"
+                                        onChange={handleImageChange}
+                                    />
+                                </div>
 
-                    <button type="submit" onClick={handleUpload}>Submit</button>
-                </form>
+                                <div>
+                                    <Input
+                                        label="Encryption Text"
+                                        id="imgsteg-encrypt"
+                                        placeholder="Encryption Text"
+                                        onChange={handleTextChange}
+                                    />
+                                </div>
+                            </div>
 
-
-                {encryptImage && (
-                    <div>
-                        <h2>Uploaded Image</h2>
-                        <img src={`data:image/png;base64,${encryptImage}`} alt="Uploaded" />
-                        <button onClick={handleDownload}>Download Image</button>
-                    </div>
-                )}
+                            <Button
+                                type="submit">
+                                Submit Encryption
+                            </Button>
+                        </form>
+                    </Card>
+                </div>
+                <div className='col-span-1 lg:col-span-1'>
+                    <Card
+                        header="How does this work?"
+                        className="opacity-75">Lorem Ipsum</Card>
+                </div>
             </div>
         </>
     );

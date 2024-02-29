@@ -1,4 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+import plugin from "tailwindcss/plugin";
+import defaultTheme from 'tailwindcss/defaultTheme';
+import colors from "tailwindcss/colors";
+
+import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -17,7 +24,22 @@ module.exports = {
         '90': 90,
         '100': 100,
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              textDecoration: "none",
+              "&:hover": {
+                opacity: ".75",
+              },
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    forms,
+    typography,
+  ],
 }

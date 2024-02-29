@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import Input from '../../components/forms/Input';
+import Card from '../../components/card/Card';
+import Button from '../../components/button/Button';
 
 export default function VigenereDecrypt() {
     const [textData, setTextData] = useState(null);
@@ -34,20 +37,49 @@ export default function VigenereDecrypt() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await grabAPI();
+        // Check that the text values are not null otherwise return
+        if (textData && key) {
+            await grabAPI();
+        } else {
+            setDecryptedText("Unable to decrypt without both a message and key!");
+        }
     };
     return (
         <>
-            <div className="bg-pink-500 p-2">VigenereDecrypt</div>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <input type='text' placeholder='insert message' onChange={handleTextChange} />
-                    <input type='text' placeholder='insert key' onChange={handleKeyChange} />
-                    <button type='submit'>Submit</button>
-                </form>
-                {decryptedText && (
-                    <p>Decrypted Text: {decryptedText}</p>
-                )}
+                <Card
+                    header="Vigenere Decryption"
+                    footer={decryptedText && (
+                        <p className='text-white'>Decrypted Text: {decryptedText}</p>
+                    )} >
+                    <form onSubmit={handleSubmit}>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
+                            <div>
+
+                                <Input
+                                    label="Decryption Message"
+                                    id="vigenere-decrypt"
+                                    placeholder="Message to Decrypt"
+                                    onChange={handleTextChange}
+                                />
+                            </div>
+
+                            <div>
+                                <Input
+                                    label="Decryption Key"
+                                    id="vigenere-decrypt"
+                                    placeholder="Key to Decrypt"
+                                    onChange={handleKeyChange}
+                                />
+                            </div>
+                        </div>
+
+                        <Button
+                            type="submit">
+                            Submit Decryption
+                        </Button>
+                    </form>
+                </Card>
             </div>
         </>
     );
