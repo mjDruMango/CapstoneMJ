@@ -27,11 +27,11 @@ export default function CaesarShiftDecrypt() {
             'shift': shift
         }
         await axios.post('http://localhost:8000/caesar/decrypt/', data, {
-                headers: { 'Content-Type': 'application/json' },
-            }).then(response => {
-                console.log(response);
-                setDecryptedText(response.data.message);
-            })
+            headers: { 'Content-Type': 'application/json' },
+        }).then(response => {
+            console.log(response);
+            setDecryptedText(response.data.message);
+        })
     };
 
     const handleSubmit = async (e) => {
@@ -44,42 +44,52 @@ export default function CaesarShiftDecrypt() {
             setDecryptedText("Unable to decrypt without both a message and key!");
         }
     };
-    return(
+    return (
         <>
-            <div>
-                <Card
-                    header="Caesar Decryption"
-                    footer={decryptedText && (
-                        <p className='text-white'>Decrypted Text: {decryptedText}</p>
-                    )} >
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
-                            <div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className='col-span-1 lg:col-span-2'>
+                    <div>
+                        <Card
+                            header="Caesar Decryption"
+                            footer={decryptedText && (
+                                <p className='text-white'>Decrypted Text: {decryptedText}</p>
+                            )} >
+                            <form onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
+                                    <div>
 
-                                <Input
-                                    label="Decryption Message"
-                                    id="caesar-decrypt"
-                                    placeholder="Message to Decrypt"
-                                    onChange={handleTextChange}
-                                />
-                            </div>
+                                        <Input
+                                            label="Decryption Message"
+                                            id="caesar-decrypt"
+                                            placeholder="Message to Decrypt"
+                                            onChange={handleTextChange}
+                                        />
+                                    </div>
 
-                            <div>
-                                <Input
-                                    label="Decryption Key"
-                                    id="caesar-decrypt"
-                                    placeholder="Key to Decrypt"
-                                    onChange={handleShiftChange}
-                                />
-                            </div>
-                        </div>
+                                    <div>
+                                        <Input
+                                            label="Decryption Key"
+                                            id="caesar-decrypt"
+                                            placeholder="Key to Decrypt"
+                                            onChange={handleShiftChange}
+                                        />
+                                    </div>
+                                </div>
 
-                        <Button
-                            type="submit">
-                            Submit Decryption
-                        </Button>
-                    </form>
-                </Card>
+                                <Button
+                                    type="submit">
+                                    Submit Decryption
+                                </Button>
+                            </form>
+                        </Card>
+                    </div>
+                </div>
+                
+                <div className='col-span-1 lg:col-span-1'>
+                    <Card
+                        header="How does this work?"
+                        className="opacity-75">Lorem Ipsum</Card>
+                </div>
             </div>
         </>
     );

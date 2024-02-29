@@ -46,40 +46,49 @@ export default function VigenereDecrypt() {
     };
     return (
         <>
-            <div>
-                <Card
-                    header="Vigenere Decryption"
-                    footer={decryptedText && (
-                        <p className='text-white'>Decrypted Text: {decryptedText}</p>
-                    )} >
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
-                            <div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className='col-span-1 lg:col-span-2'>
+                    <div>
+                        <Card
+                            header="Vigenere Decryption"
+                            footer={decryptedText && (
+                                <p className='text-white'>Decrypted Text: {decryptedText}</p>
+                            )} >
+                            <form onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
+                                    <div>
 
-                                <Input
-                                    label="Decryption Message"
-                                    id="vigenere-decrypt"
-                                    placeholder="Message to Decrypt"
-                                    onChange={handleTextChange}
-                                />
-                            </div>
+                                        <Input
+                                            label="Decryption Message"
+                                            id="vigenere-decrypt"
+                                            placeholder="Message to Decrypt"
+                                            onChange={handleTextChange}
+                                        />
+                                    </div>
 
-                            <div>
-                                <Input
-                                    label="Decryption Key"
-                                    id="vigenere-decrypt"
-                                    placeholder="Key to Decrypt"
-                                    onChange={handleKeyChange}
-                                />
-                            </div>
-                        </div>
+                                    <div>
+                                        <Input
+                                            label="Decryption Key"
+                                            id="vigenere-decrypt"
+                                            placeholder="Key to Decrypt"
+                                            onChange={handleKeyChange}
+                                        />
+                                    </div>
+                                </div>
 
-                        <Button
-                            type="submit">
-                            Submit Decryption
-                        </Button>
-                    </form>
-                </Card>
+                                <Button
+                                    type="submit">
+                                    Submit Decryption
+                                </Button>
+                            </form>
+                        </Card>
+                    </div>
+                </div>
+                <div className='col-span-1 lg:col-span-1'>
+                    <Card
+                        header="How does this work?"
+                        className="opacity-75">Lorem Ipsum</Card>
+                </div>
             </div>
         </>
     );

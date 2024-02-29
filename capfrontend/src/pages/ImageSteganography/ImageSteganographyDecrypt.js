@@ -35,7 +35,6 @@ export default function ImageSteganographyDecrypt() {
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
                 <div className='col-span-1 lg:col-span-2'>
                     <Card
                         header="Image Steganography Decryption"

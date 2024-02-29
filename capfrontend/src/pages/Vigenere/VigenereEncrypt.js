@@ -55,40 +55,49 @@ export default function VigenereEncrypt() {
 
     return (
         <>
-            <div>
-                <Card
-                    header="Vigenere Encryption"
-                    footer={encryptedText && (
-                        <p className='text-white'>Encrypted Text: {encryptedText}</p>
-                    )} >
-                    <form onSubmit={handleSubmit}>
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
-                            <div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className='col-span-1 lg:col-span-2'>
+                    <div>
+                        <Card
+                            header="Vigenere Encryption"
+                            footer={encryptedText && (
+                                <p className='text-white'>Encrypted Text: {encryptedText}</p>
+                            )} >
+                            <form onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
+                                    <div>
 
-                                <Input
-                                    label="Encryption Message"
-                                    id="vigenere-encrypt"
-                                    placeholder="Message to Encrypt"
-                                    onChange={handleTextChange}
-                                />
-                            </div>
+                                        <Input
+                                            label="Encryption Message"
+                                            id="vigenere-encrypt"
+                                            placeholder="Message to Encrypt"
+                                            onChange={handleTextChange}
+                                        />
+                                    </div>
 
-                            <div>
-                                <Input
-                                    label="Encryption Key"
-                                    id="vigenere-encrypt"
-                                    placeholder="Key to Encrypt"
-                                    onChange={handleKeyChange}
-                                />
-                            </div>
-                        </div>
+                                    <div>
+                                        <Input
+                                            label="Encryption Key"
+                                            id="vigenere-encrypt"
+                                            placeholder="Key to Encrypt"
+                                            onChange={handleKeyChange}
+                                        />
+                                    </div>
+                                </div>
 
-                        <Button
-                            type="submit">
-                            Submit Encryption
-                        </Button>
-                    </form>
-                </Card>
+                                <Button
+                                    type="submit">
+                                    Submit Encryption
+                                </Button>
+                            </form>
+                        </Card>
+                    </div>
+                </div>
+                <div className='col-span-1 lg:col-span-1'>
+                    <Card
+                        header="How does this work?"
+                        className="opacity-75">Lorem Ipsum</Card>
+                </div>
             </div>
         </>
     );
