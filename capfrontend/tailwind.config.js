@@ -1,11 +1,12 @@
-/** @type {import('tailwindcss').Config} */
 import plugin from "tailwindcss/plugin";
 import defaultTheme from 'tailwindcss/defaultTheme';
 import colors from "tailwindcss/colors";
 
+import aspectRatio from "@tailwindcss/aspect-ratio";
 import forms from "@tailwindcss/forms";
 import typography from "@tailwindcss/typography";
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -39,6 +40,7 @@ module.exports = {
     },
   },
   plugins: [
+    aspectRatio,
     forms,
     typography,
   ],

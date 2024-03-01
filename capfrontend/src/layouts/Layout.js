@@ -49,11 +49,11 @@ export default function Layout({ children }) {
                 {/* Page Content */}
                 <main
                     id="page-content"
-                    className="flex max-w-full flex-auto flex-col pt-16 lg:flex-row-reverse"
+                    className="flex max-w-full flex-auto flex-col pt-16"
                 >
 
                     {/* Page Section */}
-                    <div className="mx-auto flex w-full max-w-10xl flex-grow flex-col p-4 lg:p-8 bg-blue">
+                    <div className="mx-auto w-full max-w-10xl p-4 lg:p-8">
 
                         <Outlet />
 
