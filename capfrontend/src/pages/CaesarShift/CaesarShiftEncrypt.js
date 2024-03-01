@@ -87,8 +87,9 @@ export default function CaesarShiftEncrypt() {
                 
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
-                        header="How does this work?"
-                        className="opacity-75">Lorem Ipsum</Card>
+                        header="How Does Caesar Encryption Work?"
+                        className="opacity-75 leading-8">In a Caesar cipher, a single numerical key value, representing the number of positions to shift, is applied to every letter in the message. This key value essentially determines a fixed alphabet shift for the entire message. Each letter is then substituted with its corresponding letter in the shifted alphabet. For example, with a key value of 3, "A" becomes "D," "B" becomes "E," and so on. This process effectively encrypts the message by making it appear scrambled.
+                        </Card>
                 </div>
             </div>
         </>

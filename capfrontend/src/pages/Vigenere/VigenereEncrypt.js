@@ -95,8 +95,8 @@ export default function VigenereEncrypt() {
                 </div>
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
-                        header="How does this work?"
-                        className="opacity-75">Lorem Ipsum</Card>
+                        header="How Does Vigenere Encryption Work?"
+                        className="opacity-75 leading-8">The Vigenère cipher encrypts messages using a keyword. Each letter in the message is shifted by a varying amount, determined by the corresponding letter in the keyword. This shifting amount is based on the distance between the message letter and the keyword letter in the alphabet.</Card>
                 </div>
             </div>
         </>
