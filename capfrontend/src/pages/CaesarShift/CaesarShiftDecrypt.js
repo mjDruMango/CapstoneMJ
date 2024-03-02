@@ -50,6 +50,7 @@ export default function CaesarShiftDecrypt() {
                 <div className='col-span-1 lg:col-span-2'>
                     <div>
                         <Card
+                            className="bg-opacity-50 font-mono"
                             header="Caesar Decryption"
                             footer={decryptedText && (
                                 <p className='text-white'>Decrypted Text: {decryptedText}</p>
@@ -88,7 +89,9 @@ export default function CaesarShiftDecrypt() {
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
                         header="How Does Caesar Decryption Work?"
-                        className="opacity-75 leading-8">Decrypting a Caesar cipher involves reversing the encryption process. We utilize the same numerical key value used for encryption, which represents the number of positions to shift. However, instead of shifting forward, each letter in the ciphertext is shifted backward by the key value. This effectively undoes the original shift and reveals the original message. For instance, if the key value is 3, "D" becomes "A," "E" becomes "B," and so on. By performing this backward shift on every letter based on the key, we recover the original message from its seemingly scrambled form.</Card>
+                        className="opacity-75 leading-8 font-mono">
+                        Decrypting a Caesar cipher involves reversing the encryption process. We utilize the same numerical key value used for encryption, which represents the number of positions to shift. However, instead of shifting forward, each letter in the ciphertext is shifted backward by the key value. This effectively undoes the original shift and reveals the original message. For instance, if the key value is 3, "D" becomes "A," "E" becomes "B," and so on. By performing this backward shift on every letter based on the key, we recover the original message from its seemingly scrambled form.
+                    </Card>
                 </div>
             </div>
         </>

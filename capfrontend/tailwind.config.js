@@ -19,7 +19,8 @@ module.exports = {
       colors: {
         "primary": "#360136",
         "secondary": "#4a014a",
-        "lineart": "#730173"
+        "lineart": "#730173",
+        "textcolor": "#8c018c"
       },
       zIndex: {
         '1': 1,

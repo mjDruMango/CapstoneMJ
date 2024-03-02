@@ -59,6 +59,7 @@ export default function VigenereEncrypt() {
                 <div className='col-span-1 lg:col-span-2'>
                     <div>
                         <Card
+                            className="bg-opacity-50 font-mono"
                             header="Vigenere Encryption"
                             footer={encryptedText && (
                                 <p className='text-white'>Encrypted Text: {encryptedText}</p>
@@ -96,7 +97,9 @@ export default function VigenereEncrypt() {
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
                         header="How Does Vigenere Encryption Work?"
-                        className="opacity-75 leading-8">The Vigenère cipher encrypts messages using a keyword. Each letter in the message is shifted by a varying amount, determined by the corresponding letter in the keyword. This shifting amount is based on the distance between the message letter and the keyword letter in the alphabet.</Card>
+                        className="opacity-75 leading-8 font-mono">
+                            The Vigenère cipher encrypts messages using a keyword. Each letter in the message is shifted by a varying amount, determined by the corresponding letter in the keyword. This shifting amount is based on the distance between the message letter and the keyword letter in the alphabet.
+                    </Card>
                 </div>
             </div>
         </>

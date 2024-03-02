@@ -37,6 +37,7 @@ export default function ImageSteganographyDecrypt() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className='col-span-1 lg:col-span-2'>
                     <Card
+                        className="bg-opacity-50 font-mono"
                         header="Image Steganography Decryption"
                         footer={image && message && (
                             <p className='text-white'>Decrypted Message: {message}</p>
@@ -65,7 +66,9 @@ export default function ImageSteganographyDecrypt() {
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
                         header="How Does Steganographic Decryption Work?"
-                        className="opacity-75 leading-8">Decrypting an LSB-steganographed file involves extracting the hidden message. The carrier file, like an image or audio, is analyzed, and the least significant bits (LSBs) of each unit (e.g., pixel or audio sample) are extracted. These extracted bits are then reassembled to form the original binary message, which can be further converted back to its original form (text, image, etc.) depending on how it was initially encoded.</Card>
+                        className="opacity-75 leading-8 font-mono">
+                        Decrypting an LSB-steganographed file involves extracting the hidden message. The carrier file, like an image or audio, is analyzed, and the least significant bits (LSBs) of each unit (e.g., pixel or audio sample) are extracted. These extracted bits are then reassembled to form the original binary message, which can be further converted back to its original form (text, image, etc.) depending on how it was initially encoded.
+                    </Card>
                 </div>
             </div>
         </>

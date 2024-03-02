@@ -17,7 +17,7 @@ export default function Card(props) {
                     {/* END Card Header */}
 
                     {/* Card Body */}
-                    <div className="grow px-6 py-3 items-center text-white">
+                    <div className="grow px-6 py-3 items-center text-gray-300">
                         {props.children}
                     </div>
                     {/* END Card Body */}
