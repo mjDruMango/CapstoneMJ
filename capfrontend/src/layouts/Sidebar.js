@@ -73,7 +73,7 @@ export default function Sidebar({ mobileSidebarOpen, setMobileSidebarOpen, deskt
                         className="group inline-flex items-center space-x-2 text-lg font-bold tracking-wide text-white"
                     >
                         <svg
-                            className="hi-mini hi-cube-transparent inline-block size-5 text-blue-600 transition group-hover:scale-110"
+                            className="hi-mini hi-cube-transparent inline-block size-5 text-white transition group-hover:scale-110"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
                             fill="currentColor"
