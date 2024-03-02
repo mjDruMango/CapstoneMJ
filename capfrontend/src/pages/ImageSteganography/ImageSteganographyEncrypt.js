@@ -59,6 +59,7 @@ export default function ImageSteganographyEncrypt() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className='col-span-1 lg:col-span-2'>
                     <Card
+                        className="bg-opacity-50 font-mono"
                         header="Image Steganography Encryption"
                         footer={encryptImage && (
                             <>
@@ -104,7 +105,9 @@ export default function ImageSteganographyEncrypt() {
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
                         header="How Does Steganographic Encryption Work?"
-                        className="opacity-75 leading-8">Unlike encryption, LSB (Least Significant Bit) is a steganography technique that hides data within another file, like an image. It works by converting the secret message into binary and replacing the least impactful bits (LSBs) of the carrier file with those bits. These subtle changes, often in color or sound, are usually undetectable, making the embedded message appear invisible.</Card>
+                        className="opacity-75 leading-8 font-mono">
+                        Unlike encryption, LSB (Least Significant Bit) is a steganography technique that hides data within another file, like an image. It works by converting the secret message into binary and replacing the least impactful bits (LSBs) of the carrier file with those bits. These subtle changes, often in color or sound, are usually undetectable, making the embedded message appear invisible.
+                    </Card>
                 </div>
             </div>
         </>

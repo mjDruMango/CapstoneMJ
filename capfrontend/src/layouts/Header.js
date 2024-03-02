@@ -65,7 +65,10 @@ export default function Header({ mobileSidebarOpen, setMobileSidebarOpen, deskto
                             href="#"
                             className="group inline-flex items-center space-x-2 text-lg font-bold tracking-wide text-white"
                         >
-                            <span className="hidden sm:inline">The Gemini Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 20 20" fill="none">
+                                <path fill="#fff" fill-rule="evenodd" d="M3.415 10.242c-.067-.086-.13-.167-.186-.242a16.806 16.806 0 011.803-2.025C6.429 6.648 8.187 5.5 10 5.5c1.813 0 3.57 1.148 4.968 2.475A16.816 16.816 0 0116.771 10a16.9 16.9 0 01-1.803 2.025C13.57 13.352 11.813 14.5 10 14.5c-1.813 0-3.57-1.148-4.968-2.475a16.799 16.799 0 01-1.617-1.783zm15.423-.788L18 10l.838.546-.002.003-.003.004-.01.016-.037.054a17.123 17.123 0 01-.628.854 19.25 19.25 0 01-1.094 1.275L18.3 14.4a1 1 0 01-1.6 1.2l-1.097-1.462c-1.23 1.027-2.81 2.007-4.603 2.284V18a1 1 0 11-2 0v-1.578c-1.793-.277-3.374-1.257-4.603-2.284L3.3 15.6a1 1 0 11-1.6-1.2l1.236-1.648a19.262 19.262 0 01-1.59-1.938 11.109 11.109 0 01-.169-.245l-.01-.016-.003-.004-.001-.002c0-.001-.001-.001.837-.547l-.838-.546.002-.003.003-.004.01-.016a6.84 6.84 0 01.17-.245 18.804 18.804 0 012.308-2.66C5.151 5.1 7.394 3.499 10 3.499s4.848 1.602 6.346 3.025a18.803 18.803 0 012.44 2.852l.037.054.01.016.003.004.001.002zM18 10l.838-.546.355.546-.355.546L18 10zM1.162 9.454L2 10l-.838.546L.807 10l.355-.546z" />
+                            </svg>
+                            <span className="hidden sm:inline font-custom tracking-wider">The Gemini Project</span>
                         </a>
                     </div>
                     {/* END Center Section */}
@@ -74,7 +77,7 @@ export default function Header({ mobileSidebarOpen, setMobileSidebarOpen, deskto
                     <div className="flex items-center space-x-2">
                         {/* Social Media */}
                         <nav className="space-x-4 lg:w-1/3 lg:text-right flex">
-                            <a href="#" className="text-white hover:text-[#1877f2]">
+                            <a href="#" className="text-white hover:text-[#c9c9c9]">
                                 <svg
                                     className="icon-facebook inline-block size-5"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +87,7 @@ export default function Header({ mobileSidebarOpen, setMobileSidebarOpen, deskto
                                     <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.378 14.192 5 15.115 5H18V0h-3.808C10.596 0 9 1.583 9 4.615V8z" />
                                 </svg>
                             </a>
-                            <a href="#" className="text-white hover:text-[#405de6]">
+                            <a href="#" className="text-white hover:text-[#c9c9c9]">
                                 <svg
                                     className="icon-instagram inline-block size-5"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +99,7 @@ export default function Header({ mobileSidebarOpen, setMobileSidebarOpen, deskto
                             </a>
                             <a
                                 href="#"
-                                className="text-white hover:text-[#fff]"
+                                className="text-white hover:text-[#c9c9c9]"
                             >
                                 <svg
                                     className="icon-github inline-block size-5"

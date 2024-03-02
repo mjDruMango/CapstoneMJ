@@ -50,6 +50,7 @@ export default function VigenereDecrypt() {
                 <div className='col-span-1 lg:col-span-2'>
                     <div>
                         <Card
+                            className="bg-opacity-50 font-mono"
                             header="Vigenere Decryption"
                             footer={decryptedText && (
                                 <p className='text-white'>Decrypted Text: {decryptedText}</p>
@@ -87,8 +88,9 @@ export default function VigenereDecrypt() {
                 <div className='col-span-1 lg:col-span-1'>
                     <Card
                         header="How Does Vigenere Decryption Work?"
-                        className="opacity-75 leading-8">To decrypt a Vigenère cipher, we follow the same principle used for encryption, but in reverse. The keyword is used again, and each letter in the ciphertext (encrypted message) is shifted back by a varying amount based on the corresponding letter in the keyword. This shifting amount corresponds to the distance between the ciphertext letter and the keyword letter in the alphabet. By reversing the original shifts, we recover the original message.
-                        </Card>
+                        className="opacity-75 leading-8 font-mono">
+                        To decrypt a Vigenère cipher, we follow the same principle used for encryption, but in reverse. The keyword is used again, and each letter in the ciphertext (encrypted message) is shifted back by a varying amount based on the corresponding letter in the keyword. This shifting amount corresponds to the distance between the ciphertext letter and the keyword letter in the alphabet. By reversing the original shifts, we recover the original message.
+                    </Card>
                 </div>
             </div>
         </>
