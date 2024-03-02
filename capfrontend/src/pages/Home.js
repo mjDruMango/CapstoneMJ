@@ -19,7 +19,7 @@ export default function Home() {
                             This website is more than just an academic requirement; it's the culmination of my personal intrigue and a testament to the power of infusing passion into academic pursuits.</p>
                     </Card>
                 </div>
-                <div className="col-span-1 lg:col-span-3">
+                <div className="col-span-1 lg:col-span-3 flex items-center justify-center">
                     <svg fill="#120012" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="350px" height="350px" viewBox="0 0 448.004 448.004" xmlSpace="preserve" stroke="#8c018c">
 
                         <g id="SVGRepo_bgCarrier" stroke-width="0" />

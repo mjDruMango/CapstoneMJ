@@ -3,7 +3,7 @@ import CardFooter from "./CardFooter";
 
 export default function Card(props) {
     const additionalClasses = props.className ? ` ${props.className}` : '';
-    const customStyles = `mb-5 flex flex-col overflow-hidden rounded-lg shadow-sm ring-2 ring-lineart border-none ${props.transparent ? 'bg-black/75' : 'bg-black'}${additionalClasses}`;
+    const customStyles = `mb-5 flex flex-col overflow-hidden rounded-lg shadow-sm border border-lineart border-2 ${props.transparent ? 'bg-black/75' : 'bg-black'}${additionalClasses}`;
 
 
     return (
