@@ -15,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Hacked-KerX";
+  src: url('./fonts/Hacked-KerX.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

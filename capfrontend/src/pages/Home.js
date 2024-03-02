@@ -1,12 +1,17 @@
 import Card from "../components/card/Card";
+import '../index.css';
 
 export default function Home() {
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-9 gap-6 overflow-auto">
                 <div className="col-span-1 lg:col-span-6">
-                    <Card
-                        header="The Gemini Project" />
+                    <Card>
+                            <p className="font-bold text-7xl font-custom tracking-widest">WELCOME</p>
+                            <br />
+                            <br />
+                            Hi! My name is MJ Drumheller and I am a third year Information Systems student. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet consectetur adipiscing elit pellentesque. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. A iaculis at erat pellentesque. Egestas fringilla phasellus faucibus scelerisque. Semper quis lectus nulla at volutpat. Faucibus ornare suspendisse sed nisi. Elementum tempus egestas sed sed risus. Bibendum est ultricies integer quis auctor elit sed vulputate. Massa vitae tortor condimentum lacinia quis vel. Nibh mauris cursus mattis molestie a iaculis at. Lectus magna fringilla urna porttitor rhoncus dolor purus. A iaculis at erat pellentesque. Phasellus egestas tellus rutrum tellus. Quisque sagittis purus sit amet volutpat consequat mauris nunc congue. Amet consectetur adipiscing elit duis tristique sollicitudin. Justo eget magna fermentum iaculis eu non diam. Tempor id eu nisl nunc mi. Sit amet porttitor eget dolor morbi. Tortor dignissim convallis aenean et tortor at.
+                    </Card>
                 </div>
                 <div className="col-span-1 lg:col-span-3">
                         <svg fill="#120012" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="350px" height="350px" viewBox="0 0 448.004 448.004" xmlSpace="preserve" stroke="#8c018c">

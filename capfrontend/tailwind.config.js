@@ -13,6 +13,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        custom: ['Hacked-KerX', 'sans']
+      },
       colors: {
         "primary": "#360136",
         "secondary": "#4a014a",
