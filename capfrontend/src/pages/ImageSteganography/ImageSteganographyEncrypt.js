@@ -32,7 +32,7 @@ export default function ImageSteganographyEncrypt() {
             newFormData.append('inputText', text);
 
             //Send POST request to API, updates encryptImage with encrypted image data
-            await axios.post('http://localhost:8000/lsb/encrypt/', newFormData, {
+            await axios.post('http://3.143.1.216:8000/lsb/encrypt/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
                 setEncryptImage(response.data.image_data);

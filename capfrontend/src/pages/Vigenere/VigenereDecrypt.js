@@ -26,7 +26,7 @@ export default function VigenereDecrypt() {
             'message': textData,
             'key': key
         }
-        await axios.post('http://localhost:8000/vig/decrypt/', data, {
+        await axios.post('http://3.143.1.216:8000/vig/decrypt/', data, {
             headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             console.log(response);
