@@ -13,14 +13,18 @@ export default function ImageSteganographyEncrypt() {
     const [encryptImage, setEncryptImage] = useState(null);
 
     //Define event handlers
+
+    //update image when file input changes
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     };
 
+    //update text when text input changes
     const handleTextChange = (e) => {
         setText(e.target.value);
     };
 
+    //Form submission
     const handleUpload = async (e) => {
         e.preventDefault(); //Prevent page from reloading
 
@@ -31,7 +35,7 @@ export default function ImageSteganographyEncrypt() {
             newFormData.append('image', image);
             newFormData.append('inputText', text);
 
-            //Send POST request to API, updates encryptImage with encrypted image data
+            //Send POST request to API, updates encryptImage with encrypted image data from API
             await axios.post('http://3.143.1.216:8000/lsb/encrypt/', newFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             }).then(response => {
@@ -44,7 +48,7 @@ export default function ImageSteganographyEncrypt() {
 
     const handleDownload = () => {
 
-        //Creates temporary link
+        //Creates temporary link with encrypted image data
         const link = document.createElement("a");
 
         link.href = `data:image/png;base64,${encryptImage}`;
@@ -53,7 +57,7 @@ export default function ImageSteganographyEncrypt() {
         link.click();
     }
 
-    //Creating text box, image upload button, submit button, and download button
+    //Creating text box, image upload button, submit button, download button, explanation box
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

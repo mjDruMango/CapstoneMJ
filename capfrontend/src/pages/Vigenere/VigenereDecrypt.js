@@ -6,21 +6,28 @@ import Card from '../../components/card/Card';
 import Button from '../../components/button/Button';
 
 export default function VigenereDecrypt() {
+    //State variables
     const [textData, setTextData] = useState(null);
     const [key, setKey] = useState(null);
 
     const [decryptedText, setDecryptedText] = useState(null);
 
+    //Define event handlers
+
+    //Filters non-alphabetic values
     const handleKeyChange = (e) => {
         var keyInput = e.target.value;
-        keyInput = keyInput.replace(/[^A-Za-z]/ig, "");
+        keyInput = keyInput.replace(/[^A-Za-z]/ig, "");//replace any characters that are not upper or lowercase letters with an empty string
         setKey(keyInput);
     };
 
+    //update textData when text input changes
     const handleTextChange = (e) => {
         setTextData(e.target.value);
     };
 
+    //Send POST request to API with textData and key values
+    // - Returns decrypted text from API, sets it to decryptedText variable
     const grabAPI = async () => {
         const data = {
             'message': textData,
@@ -34,16 +41,19 @@ export default function VigenereDecrypt() {
         })
     };
 
+    //Submission form, prevents page from reloading, validates input, calls grabAPI
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault();//Prevent page from reloading
 
-        // Check that the text values are not null otherwise return
+        // Check that the text values are not null; otherwise return error message
         if (textData && key) {
             await grabAPI();
         } else {
             setDecryptedText("Unable to decrypt without both a message and key!");
         }
     };
+    //Creating message box, decryption key box, submit button, explanation box
+
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

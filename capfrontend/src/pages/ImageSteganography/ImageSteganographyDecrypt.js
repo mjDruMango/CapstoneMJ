@@ -11,10 +11,13 @@ export default function ImageSteganographyDecrypt() {
     const [message, setMessage] = useState(null);
 
     //Define event handlers
+
+    //update image when file input changes
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     }
 
+    //Form submission
     const grabAPI = async (e) => {
         e.preventDefault(); //Prevents page from reloading
 
@@ -23,7 +26,7 @@ export default function ImageSteganographyDecrypt() {
         console.log(image); //Testing purposes
         newFormData.append('image', image);
 
-        //Send POST request to API, returns extracted message
+        //Send POST request to API, returns extracted message from API
         await axios.post('http://3.143.1.216:8000/lsb/decrypt/', newFormData, {
             headers: { 'Content-Type': 'multipart/form-data' },
         }).then(response => {
@@ -31,7 +34,7 @@ export default function ImageSteganographyDecrypt() {
         })
     }
 
-    //Creating image upload button, submit button
+    //Creating image upload button, submit button, explanation box
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -54,7 +57,6 @@ export default function ImageSteganographyDecrypt() {
                                 />
                             </div>
                         </div>
-
                         <Button
                             type="submit"
                             onClick={grabAPI}>

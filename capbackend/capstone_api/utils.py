@@ -28,14 +28,20 @@ def TextEncryption(image_path, text_data, start_x=None, start_y=None):
     text_index = 0
     image_data = list(image.getdata())
 
-#Iterate through pixels and replace LSB with message
+#Iterate through pixels in image data
     for i in range(len(image_data)):
+        #convert pixel data to list
         pixel = list(image_data[i])
         
+        #Iterate over each color channel (R,G,B)
         for j in range(3):
+            #Checks for bits left in text binary data
             if text_index < len(text_binary):
+                #modify pixels color channel (LSB), applies a bitwise AND with the inverse of 1 and then a bitwise OR with the next bit from text binary data
                 pixel[j] = pixel[j] & ~1 | int(text_binary[text_index])
+                #Increment text index, move on to next bit
                 text_index += 1
+        #Convert modified pixel data back to a tuple
         image_data[i] = tuple(pixel)
 
     bytesIO = BytesIO()

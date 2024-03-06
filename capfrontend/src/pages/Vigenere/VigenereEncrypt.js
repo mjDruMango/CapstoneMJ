@@ -13,25 +13,26 @@ export default function VigenereEncrypt() {
 
     const [encryptedText, setEncryptedText] = useState(null);
 
-    //#region Event H
+    //Define event handlers
 
-    //#region Event Handlers
+    //Filters non-alphabetic values
     const handleKeyChange = (e) => {
-        const keyInput = e.target.value.replace(/[^A-Za-z]/ig, "");
+        const keyInput = e.target.value.replace(/[^A-Za-z]/ig, "");//replace any characters that are not upper or lowercase letters with an empty string
         setKey(keyInput);
     };
 
+    //update textData when text input changes
     const handleTextChange = (e) => {
         setTextData(e.target.value);
     };
 
+    //Send POST request to API with textData and key values
+    // - Returns encrypted text from API, sets it to encryptedText variable
     const grabAPI = async () => {
         const data = {
             'message': textData,
             'key': key
         }
-
-        //Send POST request to API, get back encrypted text
         await axios.post('http://3.143.1.216:8000/vig/encrypt/', data, {
             headers: { 'Content-Type': 'application/json' },
         }).then(response => {
@@ -39,19 +40,19 @@ export default function VigenereEncrypt() {
             setEncryptedText(response.data.message);
         })
     };
-    //#endregion
 
+    //Submission form, prevents page from reloading, validates input, calls grabAPI
     const handleSubmit = async (e) => {
         e.preventDefault();//Prevent page from reloading
 
-        // Check that the text values are not null otherwise return
+        // Check that the text values are not null; otherwise return error message
         if (textData && key) {
             await grabAPI();
         } else {
             setEncryptedText("Unable to encrypt without both a message and key!");
         }
     };
-    //Creating message box, encryption key box, submit button
+    //Creating message box, encryption key box, submit button, explanation box
 
     return (
         <>

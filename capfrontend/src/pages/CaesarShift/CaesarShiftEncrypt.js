@@ -6,21 +6,28 @@ import Card from '../../components/card/Card';
 import Button from '../../components/button/Button';
 
 export default function CaesarShiftEncrypt() {
+    //State variables
     const [textData, setTextData] = useState(null);
     const [shift, setShift] = useState(null);
 
     const [encryptedText, setEncryptedText] = useState(null);
 
+    //Define event handlers
+
+    //update textData when text input changes
     const handleTextChange = (e) => {
         setTextData(e.target.value);
     };
 
+    //Filters non-numeric values
     const handleShiftChange = (e) => {
         var shiftInput = e.target.value;
-        shiftInput = shiftInput.replace(/[^0-9]/ig, "");
+        shiftInput = shiftInput.replace(/[^0-9]/ig, "");//replace any non-numeric values with empty strings
         setShift(shiftInput);
     }
 
+    //Send POST request to API with textData and shift values
+    // - Returns encrypted text from API, sets it to encryptedText variable
     const grabAPI = async () => {
         const data = {
             'message': textData,
@@ -34,16 +41,18 @@ export default function CaesarShiftEncrypt() {
         })
     };
 
+    //Submission form, prevents page from reloading, validates input, calls grabAPI
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault();//Prevents page from reloading
 
-        // Check that the text values are not null otherwise return
+        // Check that the text values are not null; otherwise return error message
         if (textData && shift) {
             await grabAPI();
         } else {
             setEncryptedText("Unable to encrypt without both a message and key!");
         }
     };
+    //Creating message box, encryption key box, submit button, explanation box
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
