@@ -33,7 +33,7 @@ export default function CaesarShiftEncrypt() {
             'message': textData,
             'shift': shift
         }
-        await axios.post('http://3.143.1.216:8000/caesar/encrypt/', data, {
+        await axios.post('http://3.144.1.137:8000/caesar/encrypt/', data, {
             headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             console.log(response);

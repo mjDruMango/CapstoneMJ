@@ -27,7 +27,7 @@ export default function ImageSteganographyDecrypt() {
         newFormData.append('image', image);
 
         //Send POST request to API, returns extracted message from API
-        await axios.post('http://3.143.1.216:8000/lsb/decrypt/', newFormData, {
+        await axios.post('http://3.144.1.137:8000/lsb/decrypt/', newFormData, {
             headers: { 'Content-Type': 'multipart/form-data' },
         }).then(response => {
             setMessage(response.data.message);

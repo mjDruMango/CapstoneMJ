@@ -56,7 +56,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOWED_ORIGINS = [
-    "http://3.143.1.216:3000"
+    "http://3.144.1.137:3000"
 ]
 
 ROOT_URLCONF = 'capstone_api.urls'

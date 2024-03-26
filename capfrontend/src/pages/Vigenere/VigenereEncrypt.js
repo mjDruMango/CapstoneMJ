@@ -33,7 +33,7 @@ export default function VigenereEncrypt() {
             'message': textData,
             'key': key
         }
-        await axios.post('http://3.143.1.216:8000/vig/encrypt/', data, {
+        await axios.post('http://3.144.1.137:8000/vig/encrypt/', data, {
             headers: { 'Content-Type': 'application/json' },
         }).then(response => {
             console.log(response);
